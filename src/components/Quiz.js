@@ -1,5 +1,8 @@
 import { Component } from 'react'
 
+import Question from './Question'
+import Results from './Results'
+
 import './Quiz.scss'
 
 const URL = 'https://restcountries.eu/rest/v2/all'
@@ -19,6 +22,11 @@ const COUNTRIES = getCountriesData()
 class Quiz extends Component {
     constructor(props){
         super(props)
+
+        this.handleTryAgain = this.handleTryAgain.bind(this)
+        this.handleAnswerClick = this.handleAnswerClick.bind(this)
+        this.handleNextClick = this.handleNextClick.bind(this)
+
         this.state={
             turns: 0,
             endGame: false,
@@ -38,16 +46,39 @@ class Quiz extends Component {
         })
     }
 
-    handleAnswerClick(){
+    handleAnswerClick(index){
+        
+        const win = this.state.question.correctAnswer === index
 
+        this.setState({
+            questionIsAnswered: true,
+            score: win ? this.state.score + 1 : this.state.score,
+            turns: this.state.turns + 1,
+        })
+        
     }
 
     handleNextClick(){
 
+        this.setState({
+            questionIsAnswered: false
+        })
+
+        if(this.state.turns > 9){
+            this.setState({
+                endGame: true,
+            })
+        }else{
+            this.generateNextQuestion()
+        }
+        
+        console.log('next')
     }
 
     handleTryAgain(){
-
+        console.log('try again')
+        this.generateNextQuestion()
+        this.restartGame()
     }
 
     generateNextQuestion(){
@@ -78,8 +109,9 @@ class Quiz extends Component {
 
     render(){
 
+        const state = this.state
+
         if (!this.state.gameInitiated){
-            console.log('gen')
             this.generateNextQuestion()
         }
 
@@ -93,8 +125,14 @@ class Quiz extends Component {
                     <div className="game__question">
 
                     </div>
+                    {!state.endGame && state.gameInitiated &&
+                    <Question question={state.question}
+                        isAnswered={state.questionIsAnswered}
+                        handleAnswerClick={this.handleAnswerClick}
+                        handleNextClick={this.handleNextClick} />
+                    }
 
-
+                    {state.endGame && <Results score={state.score} click={this.handleTryAgain} />}
                 </div>
 
             </div>

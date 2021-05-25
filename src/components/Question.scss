@@ -1,0 +1,37 @@
+$hover-color: #F9A826;
+
+//*{margin: 0;}
+
+.question{
+
+    &__flag{
+        img{
+            width: 200px;
+        }
+    }
+
+    &__answer{
+        margin: 10px auto;
+
+        width: 400px;
+        height: 56px;
+
+        border: 1px blue solid;
+        border-radius: 12px;
+    }
+
+    &__next{
+        margin: auto;
+        width: 116px;
+        height: 56px;
+        border-radius: 12px;
+        background: $hover-color;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.answer__letter{
+    margin-right: 10px;
+}
