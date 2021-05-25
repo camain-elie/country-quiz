@@ -1,15 +1,23 @@
-$text-color: #1D355D;
+$text-color: #2F527B;
 $hover-color: #F9A826;
+$correct-color: #60BF88;
+$incorrect-color: #EA8282;
 
 .results{
-
+    text-align: center;
     color: $text-color;
+    width: 400px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
 
     .green{
-        color: green;
+        color: $correct-color;
     }
     .red{
-        color: red;
+        color: $incorrect-color;
     }
 
     &__button{
@@ -21,7 +29,7 @@ $hover-color: #F9A826;
         color: $text-color;
         border: 2px $text-color solid;
         border-radius: 12px;
-        margin: auto;
+        margin: 0 auto;
         cursor: pointer;
 
         &:hover{

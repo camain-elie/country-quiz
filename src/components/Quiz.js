@@ -123,9 +123,6 @@ class Quiz extends Component {
 
                 <div className="quiz__game">
 
-                    <div className="game__question">
-
-                    </div>
                     {!state.endGame && state.gameInitiated &&
                     <Question question={state.question}
                         isAnswered={state.questionIsAnswered}

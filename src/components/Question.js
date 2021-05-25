@@ -15,17 +15,17 @@ function Question (props) {
                     && props.answered === index) ? 'question__answer-incorrect' : ''}`} 
                 key={index} onClick={() => props.handleAnswerClick(index)} 
                 data-index={index}>
-                <p>
-                    <span className="answer__letter">{LETTERS[index]}</span>
-                    {item.name}
-                </p>
+                
+                    <p className="answer__letter">{LETTERS[index]}</p>
+                    <p className="answer__text">{item.name}</p>
+                
             </div>
         )
     })
 
     return(
         <div className="question">
-            <div>
+            <div className="question__image">
                 <img src={adventure} alt="adventure" />
             </div>    
             

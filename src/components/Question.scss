@@ -1,28 +1,52 @@
+$question-color: #2F527B;
+$border-color: #6066D0;
 $hover-color: #F9A826;
 $correct-color: #60BF88;
 $incorrect-color: #EA8282;
 
-//*{margin: 0;}
 
 .question{
+    width: 450px;
+    position: relative;
+
+    &__image{
+        position: absolute;
+        top: -130px;
+        right: 0;
+    }
 
     &__flag{
         img{
-            width: 200px;
+            width: 150px;
+            border: 1px #cdcdd3 solid;
         }
     }
 
+    &__text{
+        font-weight: 700;
+        color: $question-color;
+        font-size: 24px;
+        margin: 20px;
+        margin-top: 40px;
+    }
+
     &__answer{
+        text-align: left;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
         margin: 20px;
 
-        width: 400px;
-        height: 56px;
+        cursor: pointer;
 
-        border: 1px blue solid;
+
+        min-height: 56px;
+
+        border: 1px $border-color solid;
         border-radius: 12px;
+
+        color: $border-color;
 
         &:hover{
             background: $hover-color;
@@ -36,24 +60,30 @@ $incorrect-color: #EA8282;
 
         &-correct{
             background: $correct-color;
+            border: 1px $correct-color solid;
+            color: white;
         }
         &-incorrect{
             background: $incorrect-color;
+            border: 1px $incorrect-color solid;
+            color: white;
+        }
+        p{
+            margin: auto 15px;
         }
     }
 
     &__next{
+        margin: auto 20px 10px auto;
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: auto;
         width: 116px;
         height: 56px;
         border-radius: 12px;
         background: $hover-color;
         color: white;
-        display: flex;
-        justify-content: center;
         cursor: pointer;
         
         &:hover{
@@ -65,6 +95,34 @@ $incorrect-color: #EA8282;
     }
 }
 
-.answer__letter{
-    margin-right: 10px;
+@media (max-width: 550px){
+    .question{
+        width: 80vw;
+        min-height: 75vh;
+        &__flag img{
+            width: 100px;
+        }
+
+        &__text{
+            font-size: 16px;
+        }
+
+        &__answer{
+            margin: 10px;
+        }
+
+        &__next{
+            margin-right: 10px;   
+        }
+
+        &__image img{
+            width: 120px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .question__image{
+        display: none;
+    }
 }

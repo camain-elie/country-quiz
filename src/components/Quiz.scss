@@ -1,13 +1,29 @@
 .quiz{
-    
+    max-width: min-content;
+    margin: auto;
+    &__title{
+        color: white;
+        margin-bottom: 10px;
+    }
+
     &__game{
         
         background: white;
-        width: 500px;
-        height: 600px;
+
         
         border-radius: 24px;
         padding: 10px;
         
+    }
+}
+
+@media (max-width: 550px){
+    .quiz{
+        height: 90vh;
+        width: 95vw;
+
+        &__title{
+            font-size: 20px;
+        }
     }
 }
