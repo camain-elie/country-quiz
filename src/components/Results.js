@@ -1,3 +1,5 @@
+import './Results.scss'
+
 import win from './assets/undraw_winners_ao2o 2.svg'
 
 const Results = (props) => {
@@ -10,7 +12,7 @@ const Results = (props) => {
 
             <div className="results__text">
                 <h2>Results</h2>
-                <p>You got <span>{props.score}</span> correct answer{props.score > 1 ? 's' : ''}</p>
+                <p>You got <span className={props.score>3 ? 'green' : 'red'}>{props.score}</span> correct answer{props.score > 1 ? 's' : ''}</p>
             </div>
 
             <div className="results__button" onClick={() => props.click()}>

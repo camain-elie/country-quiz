@@ -32,7 +32,8 @@ class Quiz extends Component {
             endGame: false,
             score: 0,
             questionIsAnswered: false,
-            gameInitiated: false
+            gameInitiated: false,
+
 
         }
     }
@@ -54,6 +55,7 @@ class Quiz extends Component {
             questionIsAnswered: true,
             score: win ? this.state.score + 1 : this.state.score,
             turns: this.state.turns + 1,
+            answered: index,
         })
         
     }
@@ -76,7 +78,6 @@ class Quiz extends Component {
     }
 
     handleTryAgain(){
-        console.log('try again')
         this.generateNextQuestion()
         this.restartGame()
     }
@@ -116,11 +117,11 @@ class Quiz extends Component {
         }
 
         return (
-            <div className="country-quiz">
+            <div className="quiz">
 
-                <h1 className="country-quiz__title">COUNTRY QUIZ</h1>
+                <h1 className="quiz__title">COUNTRY QUIZ</h1>
 
-                <div className="game">
+                <div className="quiz__game">
 
                     <div className="game__question">
 
@@ -129,7 +130,8 @@ class Quiz extends Component {
                     <Question question={state.question}
                         isAnswered={state.questionIsAnswered}
                         handleAnswerClick={this.handleAnswerClick}
-                        handleNextClick={this.handleNextClick} />
+                        handleNextClick={this.handleNextClick}
+                        answered={this.state.answered} />
                     }
 
                     {state.endGame && <Results score={state.score} click={this.handleTryAgain} />}

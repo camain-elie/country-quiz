@@ -1,4 +1,6 @@
 $hover-color: #F9A826;
+$correct-color: #60BF88;
+$incorrect-color: #EA8282;
 
 //*{margin: 0;}
 
@@ -11,16 +13,39 @@ $hover-color: #F9A826;
     }
 
     &__answer{
-        margin: 10px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 20px;
 
         width: 400px;
         height: 56px;
 
         border: 1px blue solid;
         border-radius: 12px;
+
+        &:hover{
+            background: $hover-color;
+            color: white;
+            border: 1px solid $hover-color;
+        }
+
+        &-unactive{
+            pointer-events: none;
+        }
+
+        &-correct{
+            background: $correct-color;
+        }
+        &-incorrect{
+            background: $incorrect-color;
+        }
     }
 
     &__next{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         margin: auto;
         width: 116px;
         height: 56px;
@@ -29,6 +54,14 @@ $hover-color: #F9A826;
         color: white;
         display: flex;
         justify-content: center;
+        cursor: pointer;
+        
+        &:hover{
+            background: darken($hover-color, 8%);
+        }
+        &:focus, &:active{
+            background: darken($hover-color, 12%);
+        }
     }
 }
 

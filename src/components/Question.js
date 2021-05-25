@@ -5,12 +5,14 @@ const LETTERS = ['A', 'B', 'C', 'D']
 
 function Question (props) {
 
-    let correctAnswer = props.question.answers[props.question.correctAnswer]
-    console.log(correctAnswer)
-
     const answers = props.question.answers.map((item, index) => {
         return(
-            <div className="question__answer" 
+            <div className={`question__answer
+                ${props.isAnswered ? 'question__answer-unactive' : ''}
+                ${(props.isAnswered && props.question.correctAnswer === index) ?
+                'question__answer-correct' : ''}
+                ${(props.isAnswered && props.question.correctAnswer !== index 
+                    && props.answered === index) ? 'question__answer-incorrect' : ''}`} 
                 key={index} onClick={() => props.handleAnswerClick(index)} 
                 data-index={index}>
                 <p>
