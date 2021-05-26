@@ -1,19 +1,16 @@
 .quiz{
     max-width: min-content;
     margin: auto;
+
     &__title{
         color: white;
         margin-bottom: 10px;
     }
 
     &__game{
-        
         background: white;
-
-        
         border-radius: 24px;
         padding: 10px;
-        
     }
 }
 

@@ -31,22 +31,19 @@ $incorrect-color: #EA8282;
     }
 
     &__answer{
-        text-align: left;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-content: center;
         margin: 20px;
 
-        cursor: pointer;
-
-
         min-height: 56px;
-
         border: 1px $border-color solid;
         border-radius: 12px;
 
         color: $border-color;
+        text-align: left;
+        cursor: pointer;
 
         &:hover{
             background: $hover-color;
@@ -68,28 +65,31 @@ $incorrect-color: #EA8282;
             border: 1px $incorrect-color solid;
             color: white;
         }
+
         p{
             margin: auto 15px;
         }
     }
 
     &__next{
-        margin: auto 20px 10px auto;
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin: auto 20px 10px auto;
+
         width: 116px;
         height: 56px;
         border-radius: 12px;
         background: $hover-color;
+
         color: white;
         cursor: pointer;
         
         &:hover{
             background: darken($hover-color, 8%);
         }
-        &:focus, &:active{
+        &:active{
             background: darken($hover-color, 12%);
         }
     }
@@ -99,6 +99,7 @@ $incorrect-color: #EA8282;
     .question{
         width: 80vw;
         min-height: 75vh;
+        
         &__flag img{
             width: 100px;
         }

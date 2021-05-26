@@ -33,8 +33,6 @@ class Quiz extends Component {
             score: 0,
             questionIsAnswered: false,
             gameInitiated: false,
-
-
         }
     }
 
@@ -48,9 +46,7 @@ class Quiz extends Component {
     }
 
     handleAnswerClick(index){
-        
         const win = this.state.question.correctAnswer === index
-
         this.setState({
             questionIsAnswered: true,
             score: win ? this.state.score + 1 : this.state.score,
@@ -61,7 +57,6 @@ class Quiz extends Component {
     }
 
     handleNextClick(){
-
         this.setState({
             questionIsAnswered: false
         })
@@ -73,8 +68,6 @@ class Quiz extends Component {
         }else{
             this.generateNextQuestion()
         }
-        
-        console.log('next')
     }
 
     handleTryAgain(){
@@ -122,7 +115,6 @@ class Quiz extends Component {
                 <h1 className="quiz__title">COUNTRY QUIZ</h1>
 
                 <div className="quiz__game">
-
                     {!state.endGame && state.gameInitiated &&
                     <Question question={state.question}
                         isAnswered={state.questionIsAnswered}
